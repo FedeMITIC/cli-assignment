@@ -5,12 +5,6 @@ const _announceDeath = require('./death');
 const greetings = (() => {
   const _exitCLI = () => process.exit(0);
   /* Private */
-  const _factory = {
-    death: () => _announceDeath(),
-    birth: () => _announceBirth(),
-    exit: () => _exitCLI(),
-  };
-  /* Private */
   const _initialQuestions = [
     {
       type: 'checkbox',
@@ -27,8 +21,9 @@ const greetings = (() => {
           name: 'Exit',
         },
       ],
-      /* Create a simple validator */
+      /* Validate user input */
       validate: (answer) => {
+        // I want just one answer.
         if (answer.length < 1) {
           return 'Please select one of the option above.';
         }

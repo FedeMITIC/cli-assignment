@@ -6,6 +6,9 @@ const _announceBirth = require('./birth');
 const _announceDeath = require('./death');
 
 const processCommands = (() => {
+  const _date = new Date();
+  // Use the template string to coerce automatically to a string
+  const _today = `${_date.getDate()}/${_date.getMonth() + 1}/${_date.getFullYear()}`;
   const _printHelp = (error) => {
     if (error) {
       console.log('%s\n%s\n\n',
@@ -18,24 +21,21 @@ const processCommands = (() => {
       'All the parameter are mandatory, except the date that defaults to today.',
       colors.green.bold('birth, b: announce the birth of a person'),
       colors.bgCyan.bold('The birth command must be combined with the following commands'),
-      '-n, --name: the name of the newborn',
-      '-r, --relationship: your relationship to the newborn',
-      '-yn, --yourname: your name',
-      `-d, --date: the date of the announcement (defaults to today, ${_today})`,
+      '-n, --name: the name of the newborn (please insert also the surname)',
+      '-r, --relationship: your relationship to the newborn (father, mother, ...)',
+      '-y, --yourname: your name (please use your fullname)',
+      `-d, --date: the date of the birth (defaults to today, ${_today})`,
       colors.red.bold('death, d: announce the death of a person'),
       colors.bgCyan.bold('The death command must be combined with the following commands'),
-      '-n, --name: the name of the newborn',
-      '-r, --relationship: your relationship to the newborn',
-      '-yn, --yourname: your name',
-      `-d, --date: the date of the announcement (defaults to today, ${_today})`,
+      '-n, --name: the name of the deceased (please use the fullname)',
+      '-r, --relationship: your relationship to the deceased (father, mother, ...)',
+      '-y, --yourname: your name (please use your fullname)',
+      `-d, --date: the date of the death (defaults to today, ${_today})`,
       colors.bgCyan.bold('Call this utility without any parameter to activate the guided version.'));
     if (error) {
       process.exit(1);
     }
   };
-  const _date = new Date();
-  // Use the template string to coerce automatically to a string
-  const _today = `${_date.getDate()}/${_date.getMonth() + 1}/${_date.getFullYear()}`;
   const initializeCommands = () => {
     commander
       // Route all unrecognized commands and activate the guided mode.
@@ -47,25 +47,27 @@ const processCommands = (() => {
       .description('Announce the birth of a person.')
       .option('-n, --name [value]', 'Name of the newborn')
       .option('-r, --relationship [value]', 'How are you related to the newbord? (father, mother, ...)')
-      .option('-yn, --yourname [value]', 'What is your name?')
+      .option('-y, --yourname [value]', 'What is your name?')
       .option('-d, --date [value]', 'Date of the birth', _today)
-      .action(() => {
-        _announceBirth.init();
+      .action((args) => {
+        _announceBirth.init(args.name, args.relationship, args.yourname, args.date);
       });
     commander
       .command('death')
       .alias('d')
       .description('Announce the death of a person.')
+      .option('-a, --age [value]', 'How old was the deceased?')
       .option('-n, --name [value]', 'Name of the deceased')
       .option('-r, --relationship [value]', 'How are you related to the deceased? (father, mother, ...)')
-      .option('-yn, --yourname [value]', 'What is your name?')
+      .option('-y, --yourname [value]', 'What is your name?')
       .option('-d, --date [value]', 'Date of the death', _today)
-      .action(() => {
-        _announceDeath.init();
+      .action((args) => {
+        _announceDeath.init(args.age, args.name, args.relationship, args.yourname, args.date);
       });
     commander
       .command('help')
-      .alias('h')
+      .alias('-h')
+      .alias('--h')
       .description('print the help text')
       .action(() => _printHelp(false));
     commander.parse(process.argv);
