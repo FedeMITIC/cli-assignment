@@ -1,19 +1,27 @@
 const inquire = require('inquirer');
+const _announceBirth = require('./birth');
+const _announceDeath = require('./death');
 
 const greetings = (() => {
+  const _exitCLI = () => process.exit(0);
+  /* Private */
+  const _factory = {
+    death: () => _announceDeath(),
+    birth: () => _announceBirth(),
+    exit: () => _exitCLI(),
+  };
   /* Private */
   const _initialQuestions = [
     {
       type: 'checkbox',
       name: 'operation',
-      message: 'What do you want to do?',
+      message: 'What do you want to do?\n  Please check 1 of the options below.\n ',
       choices: [
         {
-          name: 'Announce the birth of a person',
-          checked: true,
+          name: 'Announce the birth of a person.',
         },
         {
-          name: 'Announce the death of a person',
+          name: 'Announce the death of a person.',
         },
         {
           name: 'Exit',
