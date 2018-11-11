@@ -8,8 +8,11 @@
  * then call the same utility in the solo mode with the right paramenters.
  *
  * The validation of the parameter is pretty dumb: I just make sure that they are defined, but I don't check if
- * they make sense (for example date of death after the current date or similar cases): this kind of check is out 
+ * they make sense (for example date of death after the current date or similar cases): this kind of check is out
  * of the scope.
+ *
+ * For now, it is not possible to correct the inserted data: if a user mistakenly insert a value, he/she has to redo the entire process.
+ * However, the process is really fast and straightforward, it takes at most 1 minute to be completed.
  *
  * (c) Federico Macchi, federico.macchi (at) aalto.fi - https://github.com/FedeMITIC/cli-assignment
  * All packages used are under MIT (or similar) license.

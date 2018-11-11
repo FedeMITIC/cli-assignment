@@ -2,6 +2,10 @@ const colors = require('colors');
 const checkParams = require('./checkParam');
 
 const death = (() => {
+  const _displayAnnounce = (age, name, rel, yname, date) => {
+    console.log('\n%s\n\n', colors.red.bold('Announce of death:'));
+    console.log(`It is with great sadness that ${yname}, ${rel} of ${name}, announces his passing on ${date} at the age of ${age} years.`);
+  };
   const init = (age, name, rel, yname, date) => {
     console.log('Hi, I\'m the announce death service.');
     console.log(`I received the following data:
@@ -20,6 +24,7 @@ const death = (() => {
       }
       console.log('\nRemember that all the field are mandatory except the date (defaults to today');
     }
+    _displayAnnounce(age, name, rel, yname, date);
   };
   return {
     init,

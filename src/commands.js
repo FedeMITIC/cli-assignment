@@ -1,6 +1,6 @@
 const commander = require('commander');
 const colors = require('colors');
-/* If the script is launched without any command, let's use the guided mode */
+/* If the script is launched without any command, use the guided mode */
 const init = require('./greetings');
 const _announceBirth = require('./birth');
 const _announceDeath = require('./death');
@@ -32,6 +32,12 @@ const processCommands = (() => {
       '-y, --yourname: your name (please use your fullname)',
       `-d, --date: the date of the death (defaults to today, ${_today})`,
       colors.bgCyan.bold('Call this utility without any parameter to activate the guided version.'));
+    console.log('\n%s\n\n%s\n%s\n%s',
+      colors.green.bold('Copyright information (c)'),
+      '(c) Federico Macchi, federico.macchi (at) aalto.fi - https://github.com/FedeMITIC/cli-assignment',
+      'All packages used are under MIT (or similar) license.',
+      'This package has a MIT license, thus it is possible to modify or redistribuite it.',
+      '\nThis package is provided AS IS and does not serve any purpose besides being a demo for an assignment');
     if (error) {
       process.exit(1);
     }
