@@ -36,3 +36,17 @@ For example:
 Will results in the announcement of the death of a person named *A*, that died today at 72 years old. The announcement was made by *B*, the father of *A*.
 
 ## Screenshots
+![alt text](https://github.com/FedeMITIC/cli-assignment/blob/master/images/Welcome%20screen-final.png "Welcome screen")
+*Welcome screen.*  
+
+![alt text](https://github.com/FedeMITIC/cli-assignment/blob/master/images/Initial%20status-final.png "Initial status")
+*Initial status of the CLI.*  
+
+![alt text](https://github.com/FedeMITIC/cli-assignment/blob/master/images/Feedback%201-final.png "First feedback")
+*First feedback.*  
+
+![alt text](https://github.com/FedeMITIC/cli-assignment/blob/master/images/Feedback%202-final.png "Second feedback")
+*Second feedback with more data.*  
+
+![alt text](https://github.com/FedeMITIC/cli-assignment/blob/master/images/Final%20screen-final.png "Final screen")
+*Final screen.*
