@@ -1,7 +1,12 @@
 # CLI Assignment for CS-E5220 - User Interface Construction
 
 Student: Federico Macchi  
-Topic: Announce the death or the birth of a person
+Topic: Announce the death or the birth of a person  
+
+
+![Welcome screen alt][logo]
+[logo]: "./images/Welcome screen-final.png" "Welcome screen"
+
 
 ## How to use the CLI  
 The CLI has two different modes that can be used:
@@ -30,3 +35,5 @@ For example:
 `node index.js d -a 72 -n "A" -r Father -y "B"`  
 
 Will results in the announcement of the death of a person named *A*, that died today at 72 years old. The announcement was made by *B*, the father of *A*.
+
+## Screenshots
