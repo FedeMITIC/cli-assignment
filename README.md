@@ -5,7 +5,7 @@ Topic: Announce the death or the birth of a person
 
 
 ![alt text](https://github.com/FedeMITIC/cli-assignment/blob/master/images/Welcome%20screen-final.png "Welcome screen")
-
+*Welcome screen.*
 
 ## How to use the CLI  
 The CLI has two different modes that can be used:
