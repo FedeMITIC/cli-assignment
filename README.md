@@ -4,8 +4,7 @@ Student: Federico Macchi
 Topic: Announce the death or the birth of a person  
 
 
-![Welcome screen alt][logo]
-[logo]: "./images/Welcome screen-final.png" "Welcome screen"
+![alt text](https://github.com/FedeMITIC/cli-assignment/blob/master/images/Welcome%20screen-final.png "Welcome screen")
 
 
 ## How to use the CLI  
