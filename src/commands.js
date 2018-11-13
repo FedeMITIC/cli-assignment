@@ -12,10 +12,10 @@ const processCommands = (() => {
   const _printHelp = (error) => {
     if (error) {
       console.log('%s\n%s\n\n',
-        colors.red.bold('One or more parameter was not recognised.'),
+        colors.red.bold('One or more parameters were not recognised.'),
         colors.red.bold('Please see the help section printed below.'));
     }
-    console.log('%s\n%s\n%s\n\n%s\n%s\n%s\n%s\n%s\n%s\n\n%s\n%s\n%s\n%s\n%s\n%s\n\n%s',
+    console.log('%s\n%s\n%s\n\n%s\n%s\n%s\n%s\n%s\n%s\n\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n\n%s',
       'Hi, this is a CLI utility to announce the birth or the death of a person.',
       'Below you will find the available commands to interact with this tool along with their description.',
       'All the parameter are mandatory, except the date that defaults to today.',
@@ -27,6 +27,7 @@ const processCommands = (() => {
       `-d, --date: the date of the birth (defaults to today, ${_today})`,
       colors.red.bold('death, d: announce the death of a person'),
       colors.bgCyan.bold('The death command must be combined with the following commands'),
+      '-a, --age: the age of the deceased',
       '-n, --name: the name of the deceased (please use the fullname)',
       '-r, --relationship: your relationship to the deceased (father, mother, ...)',
       '-y, --yourname: your name (please use your fullname)',
@@ -37,7 +38,7 @@ const processCommands = (() => {
       '(c) Federico Macchi, federico.macchi (at) aalto.fi - https://github.com/FedeMITIC/cli-assignment',
       'All packages used are under MIT (or similar) license.',
       'This package has a MIT license, thus it is possible to modify or redistribuite it.',
-      '\nThis package is provided AS IS and does not serve any purpose besides being a demo for an assignment');
+      '\nThis package is provided AS IS and does not serve any purpose besides being a demo for an assignment.');
     if (error) {
       process.exit(1);
     }
